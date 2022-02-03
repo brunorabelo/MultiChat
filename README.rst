@@ -91,4 +91,4 @@ How It Works
 ------------
 Draw a picture of the architecture
 
-[test](./docs/websocket4redis.png)
+![test](/docs/websocket4redis.png)
