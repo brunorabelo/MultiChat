@@ -3,4 +3,4 @@ channels~=2.0,>=2.0.2
 gunicorn==20.1.0
 channels_redis~=2.0
 psycopg2-binary==2.9.1
-daphne==2.0
+daphne==1.0
