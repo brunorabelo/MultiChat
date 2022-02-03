@@ -35,6 +35,6 @@ then
   python manage.py migrate --noinput
   python manage.py collectstatic --no-input --clear
   
-  daphne -e ssl:443:privateKey=privatekey.pem:certKey=fullchain.pem -u /tmp/daphne.sock -p 8000 config.asgi:application -b 0.0.0.0
+  daphne -p 8001 multichat.asgi:application -b 0.0.0.0
 fi
 exec "$@"
