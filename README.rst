@@ -5,7 +5,7 @@ Dockerized MultiChat
 Based on the MultiChat developed by @andrewgodwin:
 https://github.com/andrewgodwin/channels-examples/tree/master/multichat
 
-The ideia was to propose a dockerized, ready for production automatization of the application.
+This is a dockerized, ready for production of real time chat built with Django and Channels.
 
 Basic example of a multi-room chatroom, with messages from all rooms a user
 is in multiplexed over a single WebSocket connection.
@@ -24,6 +24,7 @@ access to chatroom streams based on their staff status.
 
 Installation
 ------------
+
 
 Manual installation
 ~~~~~~~~~~~~~~~~~~~
@@ -90,4 +91,4 @@ How It Works
 ------------
 Draw a picture of the architecture
 
-TODO
+[test](./docs/websocket4redis.png)
