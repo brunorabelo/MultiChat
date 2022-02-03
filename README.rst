@@ -88,5 +88,6 @@ see an error as the server-side authentication code kicks in.
 
 How It Works
 ------------
+Draw a picture of the architecture
 
 TODO
