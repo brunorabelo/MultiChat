@@ -28,12 +28,7 @@ services:
       - 80:80
     depends_on:
       - web
-  redis:
-    image: redis
-    networks:
-      - "back"
-    ports:
-      - "6379:6379"
+  
 volumes:
   postgres_data:
   static_volume:
