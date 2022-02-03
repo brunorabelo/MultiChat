@@ -25,10 +25,10 @@ END
 }
 
 if [ "$DATABASE" = "postgres" ]; then
-  until postgres_ready; do
-    echo >&2 "Waiting Postgres Service..."
-    sleep 1
-  done
+#  until postgres_ready; do
+#    echo >&2 "Waiting Postgres Service..."
+#    sleep 1
+#  done
   echo "Postgres is Ready.. Let's go!"
   # migrate any changes to the database container
   python manage.py migrate --noinput
