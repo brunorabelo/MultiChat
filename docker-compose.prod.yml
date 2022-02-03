@@ -11,7 +11,7 @@ services:
       - 8001
     volumes:
       - static_volume:/home/app/web/staticfiles
-      - socket_volume:/home/app/tmp/
+      - socket_volume:/home/app/web/tmp
     env_file:
       - ./.env.prod
     depends_on:
@@ -26,7 +26,7 @@ services:
     build: ./nginx
     volumes:
       - static_volume:/home/app/web/staticfiles
-      - socket_volume:/home/app/tmp
+      - socket_volume:/home/app/web/tmp
     ports:
       - 80:80
     depends_on:
