@@ -22,6 +22,7 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
         """
         Called when the websocket is handshaking as part of initial connection.
         """
+        print("### Teste ###")
         # Are they logged in?
         if self.scope["user"].is_anonymous:
             # Reject the connection
