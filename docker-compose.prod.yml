@@ -1,11 +1,10 @@
 version: '3.8'
 
 services:
-  web:
+  web: &django_gunicorn
     build:
       context: . 
       dockerfile: Dockerfile.prod
-    image: django_gunicorn
     command: gunicorn multichat.wsgi:application --bind 0.0.0.0:8000
     expose:
       - 8000
@@ -34,7 +33,7 @@ services:
     ports:
       - "6379:6379"
   daphne:
-    image: django_gunicorn
+    <<: *django_gunicorn
     command: daphne -p 8001 multichat.asgi:application -b 0.0.0.0
     expose:
       - 8001
@@ -42,6 +41,7 @@ services:
       - ./.env.prod
     depends_on:
       - web
+      - redis
   
 volumes:
   postgres_data:
