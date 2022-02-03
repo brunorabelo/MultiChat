@@ -1,5 +1,11 @@
-MultiChat
+Dockerized MultiChat
 =========
+
+
+Based on the MultiChat developed by @andrewgodwin:
+https://github.com/andrewgodwin/channels-examples/tree/master/multichat
+
+The ideia was to propose a dockerized, ready for production automatization of the application.
 
 Basic example of a multi-room chatroom, with messages from all rooms a user
 is in multiplexed over a single WebSocket connection.
@@ -55,6 +61,8 @@ Finally, run::
 Usage
 -----
 
+TODO
+
 Make yourself a superuser account::
 
     python manage.py createsuperuser
@@ -81,55 +89,4 @@ see an error as the server-side authentication code kicks in.
 How It Works
 ------------
 
-There's a normal Django view that just serves a HTML page behind the normal
-``@login_required`` decorator, and that is basically a single-page app with
-all the JS loaded into the ``index.html`` file (as this is an example).
-
-There's a single consumer, which you can see routed to in ``multichat/routing.py``,
-which is wrapped in the Channels authentication ASGI middleware so it can check
-that your user is logged in and retrieve it to check access as you ask to join
-rooms.
-
-Which rooms you are in is kept track of in ``self.rooms`` on the consumer
-so they can be left cleanly if you disconnect.
-
-Whenever the client asks to join a room, leave a room, or send a message,
-it sends a WebSocket text frame with a JSON encoded command. We use a generic
-consumer to handle decoding that JSON for us, and then dispatch to one of three
-handler functions based on what the command is.
-
-All rooms have an associated group, and for joins, leaves and messages, an
-event is sent over the channel layer to that group. The consumers who are in
-the group will receive those messages, and the consumer also has handler
-functions for those (e.g. ``chat_join``), which it uses to encode the events
-down into the WebSocket wire format before sending them to the client.
-
-
-Suggested Exercises
--------------------
-
-If you want to try out making some changes and getting a feel for Channels,
-here's some ideas and hints on how to do them:
-
-* Make messages from yourself have a different message type. You'll need to
-  edit the ``chat_message`` function to send a different packet down to the
-  client based on if the ``chat.message`` event it gets is from you or not.
-
-* Add message persistence. There's already a message sent to make a user join
-  a room, so you can use that to send some previous messages; you'll need to make
-  a model to save messages in, though.
-
-* Make the Room list dynamically change as rooms are added and removed.
-  You could add a common group that every socket joins and send events to it
-  as rooms are created/deleted.
-
-* Add message editing and deletion. You'll need to have made them persistent
-  first; make sure you send message IDs down with every message so the client can
-  keep track of them. Then, write some code to handle editing and trigger
-  sending new messages down when this happens with the message ID it's happening to.
-
-
-Further Reading
----------------
-
-You can find the Channels documentation at http://channels.readthedocs.org
+TODO
