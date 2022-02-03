@@ -38,6 +38,8 @@ services:
     command: daphne -p 8001 multichat.asgi:application -b 0.0.0.0
     expose:
       - 8001
+    env_file:
+      - ./.env.prod
     depends_on:
       - web
   
