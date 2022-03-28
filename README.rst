@@ -1,11 +1,15 @@
 Dockerized MultiChat
 =========
+This is a dockerized, ready for production real time chat built with Django and Channels.
 
-
-Based on the MultiChat developed by @andrewgodwin:
+Totally based on the MultiChat developed by @andrewgodwin:
 https://github.com/andrewgodwin/channels-examples/tree/master/multichat
 
-This is a dockerized, ready for production real time chat built with Django and Channels.
+The ideia of this project was to dockerize an application that used Django + Channels. 
+I wanted to get familiar with putting together Channels and real time web communication 
+on a production enviroment. So, I decided @andrewgodwin was a good and simple example of application
+to apply what I have learned.
+
 
 Basic example of a multi-room chatroom, with messages from all rooms a user
 is in multiplexed over a single WebSocket connection.
